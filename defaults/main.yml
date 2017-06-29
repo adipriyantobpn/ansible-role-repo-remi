@@ -1,2 +1,11 @@
 ---
 # defaults file for adipriyantobpn.repo-remi
+
+repo_location:              indonesia   # available options: international, indonesia, vagrant
+remi_enabled:               no
+remi_safe_enabled:          yes
+remi_php54_enabled:         no
+remi_php55_enabled:         no
+remi_php56_enabled:         no
+remi_php70_enabled:         no
+remi_php71_enabled:         yes
