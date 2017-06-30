@@ -1,10 +1,12 @@
 ---
-remi_repoinstaller_url: "http://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
-remi_gpgkey_url:        "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
-remi_baseurl:           "http://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/remi/$basearch/"
-remi_safe_baseurl:      "http://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/safe/$basearch/"
-remi_php54_baseurl:     "http://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/php54/$basearch/"
-remi_php55_baseurl:     "http://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/php55/$basearch/"
-remi_php56_baseurl:     "http://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/php56/$basearch/"
-remi_php70_baseurl:     "http://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/php70/$basearch/"
-remi_php71_baseurl:     "http://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/php71/$basearch/"
+# yum variables can be checked using this command:
+#   $ python -c 'import yum, pprint; yb = yum.YumBase(); pprint.pprint(yb.conf.yumvar, width=1)'
+remi_repoinstaller_url:   "http://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
+remi_gpgkey_url:          "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
+remi_mirrorlist:          "http://rpms.remirepo.net/enterprise/$releasever/remi/mirror"
+remi_safe_mirrorlist:     "http://rpms.remirepo.net/enterprise/$releasever/safe/mirror"
+remi_php54_mirrorlist:    "http://rpms.remirepo.net/enterprise/$releasever/php54/mirror"
+remi_php55_mirrorlist:    "http://rpms.remirepo.net/enterprise/$releasever/php55/mirror"
+remi_php56_mirrorlist:    "http://rpms.remirepo.net/enterprise/$releasever/php56/mirror"
+remi_php70_mirrorlist:    "http://rpms.remirepo.net/enterprise/$releasever/php70/mirror"
+remi_php71_mirrorlist:    "http://rpms.remirepo.net/enterprise/$releasever/php71/mirror"

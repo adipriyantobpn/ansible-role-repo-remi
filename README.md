@@ -16,7 +16,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
 ```yaml
 ---
-repo_location:              indonesia   # available options: international, indonesia, vagrant
+repo_location:              indonesia   # available options: international, indonesia, klog, vagrant
 remi_enabled:               no
 remi_safe_enabled:          yes
 remi_php54_enabled:         no

@@ -1,10 +1,10 @@
 ---
 remi_repoinstaller_url: "http://mirror.smartmedia.net.id/remi/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
 remi_gpgkey_url:        "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
-remi_baseurl:           "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/remi/$basearch/"
-remi_safe_baseurl:      "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/safe/$basearch/"
+remi_baseurl:           "http://integrator.kamadjaja.com/repo/remi/"
+remi_safe_baseurl:      "http://integrator.kamadjaja.com/repo/remi-safe/"
 remi_php54_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php54/$basearch/"
 remi_php55_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php55/$basearch/"
 remi_php56_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php56/$basearch/"
 remi_php70_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php70/$basearch/"
-remi_php71_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php71/$basearch/"
+remi_php71_baseurl:     "http://integrator.kamadjaja.com/repo/remi-php71/"

@@ -24,7 +24,9 @@
     yum_repository:
       name: "{{ item.name.lower() }}"
       description: "Remi's RPM repository for Enterprise Linux $releasever - $basearch - {{ item.name }}"
-      baseurl: "{{ item.baseurl }}"
+      mirrorlist: "{{ item.mirrorlist | default(omit) }}"
+      failovermethod: roundrobin
+      baseurl: "{{ item.baseurl | default(omit) }}"
       gpgkey: "{{ remi_gpgkey_url }}"
       gpgcheck: yes
       enabled: "{{ item.enabled }}"
@@ -32,11 +34,11 @@
       state: present
     become: True
     with_items:
-      - { name: REMI          ,file: remi         ,enabled: "{{ remi_enabled }}"        ,baseurl: "{{ remi_baseurl }}" }
-      - { name: REMI-Safe     ,file: remi-safe    ,enabled: "{{ remi_safe_enabled }}"   ,baseurl: "{{ remi_safe_baseurl }}" }
-      - { name: REMI-PHP54    ,file: remi-php54   ,enabled: "{{ remi_php54_enabled }}"  ,baseurl: "{{ remi_php54_baseurl }}" }
-      - { name: REMI-PHP55    ,file: remi         ,enabled: "{{ remi_php55_enabled }}"  ,baseurl: "{{ remi_php55_baseurl }}" }
-      - { name: REMI-PHP56    ,file: remi         ,enabled: "{{ remi_php56_enabled }}"  ,baseurl: "{{ remi_php56_baseurl }}" }
-      - { name: REMI-PHP70    ,file: remi-php70   ,enabled: "{{ remi_php70_enabled }}"  ,baseurl: "{{ remi_php70_baseurl }}" }
-      - { name: REMI-PHP71    ,file: remi-php71   ,enabled: "{{ remi_php71_enabled }}"  ,baseurl: "{{ remi_php71_baseurl }}" }
+      - { name: REMI          ,file: remi         ,enabled: "{{ remi_enabled }}"        ,baseurl: "{{ remi_baseurl | default(omit) }}"        ,mirrorlist: "{{ remi_mirrorlist | default(omit) }}" }
+      - { name: REMI-Safe     ,file: remi-safe    ,enabled: "{{ remi_safe_enabled }}"   ,baseurl: "{{ remi_safe_baseurl | default(omit) }}"   ,mirrorlist: "{{ remi_safe_mirrorlist | default(omit) }}" }
+      - { name: REMI-PHP54    ,file: remi-php54   ,enabled: "{{ remi_php54_enabled }}"  ,baseurl: "{{ remi_php54_baseurl | default(omit) }}"  ,mirrorlist: "{{ remi_php54_mirrorlist | default(omit) }}" }
+      - { name: REMI-PHP55    ,file: remi         ,enabled: "{{ remi_php55_enabled }}"  ,baseurl: "{{ remi_php55_baseurl | default(omit) }}"  ,mirrorlist: "{{ remi_php55_mirrorlist | default(omit) }}" }
+      - { name: REMI-PHP56    ,file: remi         ,enabled: "{{ remi_php56_enabled }}"  ,baseurl: "{{ remi_php56_baseurl | default(omit) }}"  ,mirrorlist: "{{ remi_php56_mirrorlist | default(omit) }}" }
+      - { name: REMI-PHP70    ,file: remi-php70   ,enabled: "{{ remi_php70_enabled }}"  ,baseurl: "{{ remi_php70_baseurl | default(omit) }}"  ,mirrorlist: "{{ remi_php70_mirrorlist | default(omit) }}" }
+      - { name: REMI-PHP71    ,file: remi-php71   ,enabled: "{{ remi_php71_enabled }}"  ,baseurl: "{{ remi_php71_baseurl | default(omit) }}"  ,mirrorlist: "{{ remi_php71_mirrorlist | default(omit) }}" }
   become: True
