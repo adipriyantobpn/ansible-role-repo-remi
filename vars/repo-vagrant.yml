@@ -1,10 +1,47 @@
 ---
+# yum variables can be checked using this command:
+#   $ python -c 'import yum, pprint; yb = yum.YumBase(); pprint.pprint(yb.conf.yumvar, width=1)'
+
 remi_repoinstaller_url: "file:///vagrant/repofile/remi-release-{{ ansible_distribution_major_version }}.rpm"
 remi_gpgkey_url:        "file:///vagrant/repofile/RPM-GPG-KEY-remi"
-remi_baseurl:           "file:///vagrant/repo/remi/"
-remi_safe_baseurl:      "file:///vagrant/repo/remi-safe/"
-remi_php54_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php54/$basearch/"
-remi_php55_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php55/$basearch/"
-remi_php56_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php56/$basearch/"
-remi_php70_baseurl:     "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php70/$basearch/"
-remi_php71_baseurl:     "file:///vagrant/repo/remi-php71/"
+remi_repo:
+  REMI:
+    name: Remi's PHP
+    file: remi
+    enabled: "{{ remi_enabled }}"
+    baseurl: "file:///vagrant/repo/remi/"
+  REMI-Safe:
+    name: Safe Remi's PHP
+    file: remi-safe
+    enabled: "{{ remi_safe_enabled }}"
+    baseurl: "file:///vagrant/repo/remi-safe/"
+  REMI-PHP54:
+    name: Remi's PHP 5.4
+    file: remi-php54
+    enabled: "{{ remi_php54_enabled }}"
+    baseurl: "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php54/$basearch/"
+  REMI-PHP55:
+    name: Remi's PHP 5.5
+    file: remi
+    enabled: "{{ remi_php55_enabled }}"
+    baseurl: "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php55/$basearch/"
+  REMI-PHP56:
+    name: Remi's PHP 5.6
+    file: remi
+    enabled: "{{ remi_php56_enabled }}"
+    baseurl: "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php56/$basearch/"
+  REMI-PHP70:
+    name: Remi's PHP 7.0
+    file: remi-php70
+    enabled: "{{ remi_php70_enabled }}"
+    baseurl: "http://mirror.smartmedia.net.id/remi/enterprise/$releasever/php70/$basearch/"
+  REMI-PHP71:
+    name: Remi's PHP 7.1
+    file: remi-php71
+    enabled: "{{ remi_php71_enabled }}"
+    baseurl: "file:///vagrant/repo/remi-php71/"
+  REMI-PHP72:
+    name: Remi's PHP 7.2
+    file: remi-php72
+    enabled: "{{ remi_php72_enabled }}"
+    mirrorlist: "http://rpms.remirepo.net/enterprise/$releasever/php72/mirror"
