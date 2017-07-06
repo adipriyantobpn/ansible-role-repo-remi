@@ -2,19 +2,19 @@
 # yum variables can be checked using this command:
 #   $ python -c 'import yum, pprint; yb = yum.YumBase(); pprint.pprint(yb.conf.yumvar, width=1)'
 
-remi_repoinstaller_url: "file:///vagrant/repofile/remi-release-{{ ansible_distribution_major_version }}.rpm"
-remi_gpgkey_url:        "file:///vagrant/repofile/RPM-GPG-KEY-remi"
+remi_repoinstaller_url: "{{ vagrant_repo_base_dir }}remi-release-{{ ansible_distribution_major_version }}.rpm"
+remi_gpgkey_url:        "{{ vagrant_repo_base_dir }}RPM-GPG-KEY-remi"
 remi_repo:
   REMI:
     name: Remi's PHP
     file: remi
     enabled: "{{ remi_enabled }}"
-    baseurl: "file:///vagrant/repo/remi/"
+    baseurl: "{{ vagrant_repo_base_dir }}remi/"
   REMI-Safe:
     name: Safe Remi's PHP
     file: remi-safe
     enabled: "{{ remi_safe_enabled }}"
-    baseurl: "file:///vagrant/repo/remi-safe/"
+    baseurl: "{{ vagrant_repo_base_dir }}remi-safe/"
   REMI-PHP54:
     name: Remi's PHP 5.4
     file: remi-php54
@@ -39,7 +39,7 @@ remi_repo:
     name: Remi's PHP 7.1
     file: remi-php71
     enabled: "{{ remi_php71_enabled }}"
-    baseurl: "file:///vagrant/repo/remi-php71/"
+    baseurl: "{{ vagrant_repo_base_dir }}remi-php71/"
   REMI-PHP72:
     name: Remi's PHP 7.2
     file: remi-php72
